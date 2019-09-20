@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.vague.android.vague_task1.R
 import com.vague.android.vague_task1.common.isEmpty
 import com.vague.android.vague_task1.common.isValidEmail
@@ -18,6 +20,18 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        // Has a user logged in before?
+        Log.d(TAG, "In onCreate")
+        if (sharedPref?.getString(getString(R.string.user_email_pref_key), null) != null) {
+            Log.d(TAG, "Found a user")
+            findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
