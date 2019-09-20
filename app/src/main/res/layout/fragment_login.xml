@@ -12,11 +12,11 @@
         android:layout_marginStart="48dp"
         android:layout_marginBottom="8dp"
         android:text="@string/txt_email"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/edit_email"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edit_email"
         style="@style/AppTheme.EditText"
         android:layout_width="0dp"
         android:layout_height="38dp"
@@ -61,11 +61,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/txt_password"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText2" />
+        app:layout_constraintBottom_toTopOf="@+id/edit_password"
+        app:layout_constraintStart_toStartOf="@+id/edit_email" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edit_password"
         style="@style/AppTheme.EditText"
         android:layout_width="0dp"
         android:layout_height="38dp"
@@ -75,13 +75,13 @@
         android:inputType="textPassword"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/btn_signup"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
