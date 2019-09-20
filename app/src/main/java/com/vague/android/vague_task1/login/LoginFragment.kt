@@ -9,6 +9,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.vague.android.vague_task1.R
 import com.vague.android.vague_task1.common.isEmpty
+import com.vague.android.vague_task1.common.isValidEmail
 import com.vague.android.vague_task1.common.showError
 import kotlinx.android.synthetic.main.fragment_login.*
 
@@ -20,14 +21,30 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         colorTitleText()
         btn_login.setOnClickListener {
-            // Do emptiness validations
-            if (edit_email.isEmpty()) {
-                showError(it, "E-mail cannot be empty")
-            }
-            if (edit_password.isEmpty()) {
-                showError(it, "Password cannot be empty")
-            }
+            //TODO: Hide InputMethod
+
+            doValidations(it)
         }
+    }
+
+    private fun doValidations(view: View) {
+        // Do emptiness validations
+        if (edit_email.isEmpty()) {
+            showError(view, "E-mail cannot be empty")
+            return
+        }
+        if (edit_password.isEmpty()) {
+            showError(view, "Password cannot be empty")
+            return
+        }
+
+        // Do content validations
+        if (!isValidEmail(edit_email.text.toString())) {
+            showError(view, "Invalid E-mail address")
+            return
+        }
+
+
     }
 
     private fun colorTitleText() {
