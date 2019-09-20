@@ -6,7 +6,7 @@ import androidx.core.util.PatternsCompat
 
 fun showError(view: View, str: String) {
     //Snackbar.make(view, str, Snackbar.LENGTH_LONG).show()
-    Toast.makeText(view.context, str, Toast.LENGTH_LONG).show()
+    Toast.makeText(view.context, str, Toast.LENGTH_SHORT).show()
 }
 
 fun showMessage(view: View, str: String) {
