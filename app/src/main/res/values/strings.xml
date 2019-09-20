@@ -6,11 +6,11 @@
     <string name="txt_password">Password</string>
     <string name="txt_name">Name</string>
     <string name="txt_confPassword">Confirm Password</string>
-    <string name="txt_getstarted">Get Started</string>
     <string name="txt_donthaveanaccount">Don\'t have an account yet?</string>
     <string name="btn_login">Login</string>
     <string name="btn_signup">Sign Up</string>
 
     <string name="user_email_pref_key">USER INFO PREF KEY</string>
+    <string name="user_name_pref_key">USER NAME PREF KEY</string>
     <string name="user_password_pref_key">USER PASSWORD PREF KEY</string>
 </resources>
