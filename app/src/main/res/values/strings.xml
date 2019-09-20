@@ -13,6 +13,7 @@
     <string name="user_email_pref_key">USER INFO PREF KEY</string>
     <string name="user_name_pref_key">USER NAME PREF KEY</string>
     <string name="user_password_pref_key">USER PASSWORD PREF KEY</string>
+    <string name="user_logged_in">USER LOGGED IN</string>
 
     <string name="txt_logout">Logout</string>
     <string name="today">Today</string>

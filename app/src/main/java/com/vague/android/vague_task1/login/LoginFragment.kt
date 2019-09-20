@@ -15,7 +15,6 @@ import com.vague.android.vague_task1.R
 import com.vague.android.vague_task1.common.isEmpty
 import com.vague.android.vague_task1.common.isValidEmail
 import com.vague.android.vague_task1.common.showError
-import com.vague.android.vague_task1.common.showMessage
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -27,7 +26,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
         // Has a user logged in before?
         Log.d(TAG, "In onCreate")
-        if (sharedPref?.getString(getString(R.string.user_email_pref_key), null) != null) {
+        val loggedin = sharedPref?.getBoolean(getString(R.string.user_logged_in), false)
+        if (loggedin != null && loggedin == true) {
             Log.d(TAG, "Found a user")
             findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
         }
@@ -86,7 +86,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             if (inputEmail.equals(prefEmail)) {
                 if (inputPassword.equals(prefPassword)) {
-                    showMessage(view, "Welcome $prefEmail")
+                    with(sharedPref!!.edit()) {
+                        putBoolean(getString(R.string.user_logged_in), true)
+                        commit()
+                    }
                     view.findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
                     return
                 }

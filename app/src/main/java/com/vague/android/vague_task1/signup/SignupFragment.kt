@@ -65,6 +65,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
             putString(getString(R.string.user_name_pref_key), name)
             putString(getString(R.string.user_email_pref_key), email)
             putString(getString(R.string.user_password_pref_key), password)
+            putBoolean(getString(R.string.user_logged_in), true)
             commit()
         }
     }
