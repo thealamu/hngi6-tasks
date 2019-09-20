@@ -10,4 +10,7 @@
     <string name="txt_donthaveanaccount">Don\'t have an account yet?</string>
     <string name="btn_login">Login</string>
     <string name="btn_signup">Sign Up</string>
+
+    <string name="user_email_pref_key">USER INFO PREF KEY</string>
+    <string name="user_password_pref_key">USER PASSWORD PREF KEY</string>
 </resources>

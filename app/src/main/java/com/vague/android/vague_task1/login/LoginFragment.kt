@@ -1,5 +1,6 @@
 package com.vague.android.vague_task1.login
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.text.Spannable
@@ -44,7 +45,25 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             return
         }
 
+        // Validate credentials
+        validateCredentials(view)
+    }
 
+    private fun validateCredentials(view: View) {
+        var prefUsername: String? = null
+        var prefPassword: String? = null
+
+        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+        sharedPref?.let { sp ->
+            prefUsername = sp.getString(getString(R.string.user_email_pref_key), null)
+            prefPassword = sp.getString(getString(R.string.user_password_pref_key), null)
+        }
+
+        if (prefUsername.isNullOrEmpty() || prefPassword.isNullOrEmpty()) {
+            showError(view, "You do not have an account yet")
+        } else {
+
+        }
     }
 
     private fun colorTitleText() {
