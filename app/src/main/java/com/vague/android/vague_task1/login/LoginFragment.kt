@@ -8,6 +8,7 @@ import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.vague.android.vague_task1.R
 import com.vague.android.vague_task1.common.isEmpty
 import com.vague.android.vague_task1.common.isValidEmail
@@ -23,9 +24,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         colorTitleText()
         btn_login.setOnClickListener {
-            //TODO: Hide InputMethod
-
             doValidations(it)
+        }
+
+        btn_signup.setOnClickListener {
+            view.findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
         }
     }
 

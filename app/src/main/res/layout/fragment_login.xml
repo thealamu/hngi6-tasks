@@ -9,7 +9,7 @@
         style="@style/AppTheme.EditTextTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/txt_email"
         app:layout_constraintBottom_toTopOf="@+id/edit_email"
@@ -111,6 +111,8 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="@string/btn_signup"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView3"
         app:layout_constraintStart_toEndOf="@+id/textView3" />
 
