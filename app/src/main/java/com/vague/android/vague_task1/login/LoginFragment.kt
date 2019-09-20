@@ -12,6 +12,7 @@ import com.vague.android.vague_task1.R
 import com.vague.android.vague_task1.common.isEmpty
 import com.vague.android.vague_task1.common.isValidEmail
 import com.vague.android.vague_task1.common.showError
+import com.vague.android.vague_task1.common.showMessage
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -50,19 +51,32 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun validateCredentials(view: View) {
-        var prefUsername: String? = null
+        var prefEmail: String? = null
         var prefPassword: String? = null
 
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
         sharedPref?.let { sp ->
-            prefUsername = sp.getString(getString(R.string.user_email_pref_key), null)
+            prefEmail = sp.getString(getString(R.string.user_email_pref_key), null)
             prefPassword = sp.getString(getString(R.string.user_password_pref_key), null)
         }
 
-        if (prefUsername.isNullOrEmpty() || prefPassword.isNullOrEmpty()) {
+        if (prefEmail.isNullOrEmpty() || prefPassword.isNullOrEmpty()) {
             showError(view, "You do not have an account yet")
         } else {
+            // Check that the credentials are correct
+            val inputEmail = edit_email.text.toString()
+            val inputPassword = edit_password.text.toString()
 
+            if (inputEmail.equals(prefEmail)) {
+                if (inputPassword.equals(prefPassword)) {
+                    showMessage(view, "Welcome $prefEmail")
+                    //TODO: Navigate to Dashboard
+                    return
+                }
+            }
+
+            // Incorrect credentials
+            showError(view, "Incorrect email or password, please try again")
         }
     }
 
