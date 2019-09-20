@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.vague.android.vague_task1.R
 import com.vague.android.vague_task1.common.isEmpty
 import com.vague.android.vague_task1.common.isValidEmail
@@ -51,7 +52,7 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
         }
 
         saveUserData()
-
+        view.findNavController().navigate(R.id.action_signupFragment_to_dashboardFragment)
     }
 
     private fun saveUserData() {

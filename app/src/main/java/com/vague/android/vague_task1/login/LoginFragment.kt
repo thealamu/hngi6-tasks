@@ -73,7 +73,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             if (inputEmail.equals(prefEmail)) {
                 if (inputPassword.equals(prefPassword)) {
                     showMessage(view, "Welcome $prefEmail")
-                    //TODO: Navigate to Dashboard
+                    view.findNavController().navigate(R.id.action_loginFragment_to_dashboardFragment)
                     return
                 }
             }
